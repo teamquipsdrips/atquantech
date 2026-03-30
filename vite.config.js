@@ -9,6 +9,7 @@ export default defineConfig({
     react()
   ],
   server: {
-    allowedHosts: ["imelda-philhellenic-blamably.ngrok-free.dev"]
+    allowedHosts: ["imelda-philhellenic-blamably.ngrok-free.dev"],
+    base: "/atquantech"
   }
 })
