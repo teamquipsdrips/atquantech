@@ -10,6 +10,6 @@ export default defineConfig({
   ],
   server: {
     allowedHosts: ["imelda-philhellenic-blamably.ngrok-free.dev"],
-    base: "/atquantech"
+    base: "/atquantech/"
   }
 })
