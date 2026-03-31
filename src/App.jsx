@@ -134,7 +134,7 @@ export default function English() {
                 <p className="leading-[18px]">Contact</p>
               </div>
             </div>
-            <div className="absolute bg-gradient-to-b bottom-[8.5px] hover:opacity-80 transition-opacity cursor-pointer from-[#f3e295] left-[368px] overflow-clip rounded-[12px] to-[#cfa857] top-[7.5px] w-[137px]" data-name="Link - Inverse Main" data-node-id="1:33">
+            <div className="absolute bg-gradient-to-b bottom-[8.5px] cursor-pointer from-[#f3e295] left-[368px] overflow-clip rounded-[12px] to-[#cfa857] top-[7.5px] w-[137px]" data-name="Link - Inverse Main" data-node-id="1:33">
               <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[20px] text-[#3a3839] text-[16px] top-[20.39px] whitespace-nowrap" data-node-id="1:34">
                 <p className="leading-[19.2px]">Work with us</p>
               </div>
@@ -183,7 +183,7 @@ export default function English() {
             <p className="leading-[32px] mb-0">{`We design and build enterprise-grade AI platforms, applications, `}</p>
             <p className="leading-[32px]">{`and digital systems that are built fast, scalable and robust. `}</p>
           </div>
-          <div className="bg-gradient-to-b border border-solid border-white cursor-pointer from-[#f3e295] h-[48px] overflow-clip relative rounded-[12px] shrink-0 to-[#cfa857] w-[189px]" data-name="Link - Main" data-node-id="1:52">
+          <div className="bg-gradient-to-b cursor-pointer from-[#f3e295] h-[48px] overflow-clip relative rounded-[12px] shrink-0 to-[#cfa857] w-[189px]" data-name="Link - Main" data-node-id="1:52">
             <div className="absolute bg-[#affc41] border border-black border-solid inset-[-0.5px_-1px_-0.5px_0] opacity-0" data-name="Highlight" data-node-id="1:53" />
             <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[19.27px] text-[16px] text-black top-[23.3px] whitespace-nowrap" data-node-id="1:54">
               <p className="leading-[19.2px]">Request a Proposal</p>
