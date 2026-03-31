@@ -103,7 +103,7 @@ const RevealOnScroll = ({ children, delay = 0, className = "" }) => {
 };
 
 export default function English() {
-  const [scale, setScale] = useState(typeof window !== 'undefined' ? Math.min(window.innerWidth, document.documentElement.clientWidth) / 1440 : 0);
+  const [scale, setScale] = useState(typeof window !== 'undefined' ? Math.min(window.innerWidth, document.documentElement.clientWidth) / 1440 : 1);
   const [activeIndustry, setActiveIndustry] = useState(0);
   useEffect(() => {
     const handleResize = () => {
@@ -166,7 +166,7 @@ export default function English() {
               </div>
             </div>
             <div className="absolute content-stretch flex flex-col gap-[23px] items-center left-[150px] top-[241px] w-[1140px]" data-node-id="1:36">
-              <div className="content-stretch flex gap-[16px] items-center animate-fade-in-up animate-float delay-500 relative shrink-0" data-node-id="1:37">
+              <div className="content-stretch flex gap-[16px] items-center animate-fade-in-up delay-[500ms] relative shrink-0" data-node-id="1:37">
                 <div className="h-[32px] overflow-clip relative shrink-0 w-[109px]" data-name="Image" data-node-id="1:38">
                   <div className="absolute border border-solid border-white inset-[0_77px_0_0] rounded-[100px]" data-name="gBnkhJ17BmtTHqpLjPkAeWdN8U.png" data-node-id="1:39">
                     <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[100px]">
