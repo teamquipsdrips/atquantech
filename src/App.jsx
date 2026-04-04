@@ -34,6 +34,8 @@ import imgGroup2 from './assets/e27c8b393caa68410ca57e7e2098a26275e27ba5.svg';
 import imgGroup3 from './assets/857d9ac770869df60ec56a76c7cfcfd7f7714fc4.svg';
 
 import { useEffect, useState, useRef } from 'react';
+import ProposalModal from './ProposalModal';
+import IndustryDrawer from './IndustryDrawer';
 
 
 const industriesData = [
@@ -105,6 +107,9 @@ const RevealOnScroll = ({ children, delay = 0, className = "" }) => {
 export default function English() {
   const [scale, setScale] = useState(typeof window !== 'undefined' ? Math.min(window.innerWidth, document.documentElement.clientWidth) / 1440 : 1);
   const [activeIndustry, setActiveIndustry] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [industryDrawerOpen, setIndustryDrawerOpen] = useState(false);
+  const [selectedIndustry, setSelectedIndustry] = useState(null);
   useEffect(() => {
     const handleResize = () => {
       const width = Math.min(window.innerWidth, document.documentElement.clientWidth);
@@ -147,7 +152,7 @@ export default function English() {
                   <div className="-translate-x-1/2 -translate-y-1/2 absolute flex flex-col h-[19px] justify-center left-[44.29px] text-center top-[20.5px] w-[64.589px] cursor-pointer hover:text-[#cfa857] transition-colors" data-node-id="1:29">
                     <p className="leading-[18px]">Home</p>
                   </div>
-                  <div className="-translate-x-1/2 -translate-y-1/2 absolute flex flex-col justify-center left-[130.66px] text-center top-[20px] whitespace-nowrap cursor-pointer hover:text-[#cfa857] transition-colors" data-node-id="1:30">
+                  <div onClick={(e) => { e.preventDefault(); document.getElementById('services-section')?.scrollIntoView({behavior: 'smooth'}) }} className="-translate-x-1/2 -translate-y-1/2 absolute flex flex-col justify-center left-[130.66px] text-center top-[20px] whitespace-nowrap cursor-pointer hover:text-[#cfa857] transition-colors" data-node-id="1:30">
                     <p className="leading-[18px]">Services</p>
                   </div>
                   <div className="-translate-y-1/2 absolute flex flex-col h-[19px] justify-center left-[188.13px] top-[20.5px] w-[43.318px] cursor-pointer hover:text-[#cfa857] transition-colors" data-node-id="1:31">
@@ -157,7 +162,7 @@ export default function English() {
                     <p className="leading-[18px]">Contact</p>
                   </div>
                 </div>
-                <div className="absolute bg-gradient-to-b bottom-[8.5px] cursor-pointer from-[#f3e295] left-[368px] overflow-clip hover:scale-[1.03] active:scale-[0.97] transition-transform rounded-[12px] to-[#cfa857] top-[7.5px] w-[137px]" data-name="Link - Inverse Main" data-node-id="1:33">
+                <div onClick={() => setIsModalOpen(true)} className="absolute bg-gradient-to-b bottom-[8.5px] cursor-pointer from-[#f3e295] left-[368px] overflow-clip hover:scale-[1.03] active:scale-[0.97] transition-transform rounded-[12px] to-[#cfa857] top-[7.5px] w-[137px]" data-name="Link - Inverse Main" data-node-id="1:33">
                   <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[20px] text-[#3a3839] text-[16px] top-[20.39px] whitespace-nowrap" data-node-id="1:34">
                     <p className="leading-[19.2px]">Work with us</p>
                   </div>
@@ -206,10 +211,12 @@ export default function English() {
                 <p className="leading-[32px] mb-0">{`We design and build enterprise-grade AI platforms, applications, `}</p>
                 <p className="leading-[32px]">{`and digital systems that are built fast, scalable and robust. `}</p>
               </div>
-              <div className="bg-gradient-to-b cursor-pointer from-[#f3e295] h-[48px] overflow-clip relative rounded-[12px] animate-fade-in-up delay-400 hover:scale-[1.03] active:scale-[0.97] transition-transform shrink-0 to-[#cfa857] w-[189px]" data-name="Link - Main" data-node-id="1:52">
-                <div className="absolute bg-[#affc41] border border-black border-solid inset-[-0.5px_-1px_-0.5px_0] opacity-0" data-name="Highlight" data-node-id="1:53" />
-                <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[19.27px] text-[16px] text-black top-[23.3px] whitespace-nowrap" data-node-id="1:54">
-                  <p className="leading-[19.2px]">Request a Proposal</p>
+              <div className="animate-fade-in-up delay-400 shrink-0">
+                <div onClick={() => setIsModalOpen(true)} className="bg-gradient-to-b cursor-pointer from-[#f3e295] h-[48px] overflow-clip relative rounded-[12px] hover:scale-[1.03] active:scale-[0.97] transition-transform shrink-0 to-[#cfa857] w-[189px]" data-name="Link - Main" data-node-id="1:52">
+                  <div className="absolute bg-[#affc41] border border-black border-solid inset-[-0.5px_-1px_-0.5px_0] opacity-0" data-name="Highlight" data-node-id="1:53" />
+                  <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[19.27px] text-[16px] text-black top-[23.3px] whitespace-nowrap" data-node-id="1:54">
+                    <p className="leading-[19.2px]">Request a Proposal</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,7 +235,7 @@ export default function English() {
               </div>
             </div>
           </div>
-          <div className="bg-[#fafafa] content-stretch flex flex-col items-start overflow-clip pb-[81px] pt-[71px] px-[33px] relative shrink-0 w-full" data-name="Desktop - 340" data-node-id="1:57">
+          <div id="services-section" className="bg-[#fafafa] content-stretch flex flex-col items-start overflow-clip pb-[81px] pt-[71px] px-[33px] relative shrink-0 w-full" data-name="Desktop - 340" data-node-id="1:57">
             <div className="content-end flex flex-wrap gap-[51px_12px] items-end relative shrink-0 w-full" data-node-id="1:58">
               <RevealOnScroll className="w-[1374px] shrink-0">
                 <div className="content-stretch flex flex-col font-medium gap-[20px] items-center leading-[0] not-italic px-[16px] relative shrink-0 text-[#1e1e1e] w-[1374px]" data-node-id="1:59">
@@ -440,7 +447,7 @@ export default function English() {
                           <p className="leading-[21px]">{ind.subtitle}</p>
                         </div>
 
-                        <div className={`cursor-pointer flex flex-row items-center gap-[5px] w-fit transition-all duration-300 hover:opacity-80 ${isActive ? 'opacity-100 visible' : 'opacity-0 invisible h-0 overflow-hidden'}`}>
+                        <div onClick={(e) => { e.stopPropagation(); setSelectedIndustry(ind); setIndustryDrawerOpen(true); }} className={`cursor-pointer flex flex-row items-center gap-[5px] w-fit transition-all duration-300 hover:opacity-80 ${isActive ? 'opacity-100 visible' : 'opacity-0 invisible h-0 overflow-hidden'}`}>
                           <div className="flex items-center justify-center border border-white rounded-[90px] h-[37px] px-[20px]">
                             <span className="text-white text-[12.6px] font-['Inter:Regular',sans-serif]">Explore More</span>
                           </div>
@@ -783,7 +790,7 @@ export default function English() {
                     <p className="leading-[34px] mb-0 whitespace-pre">{`If you’re planning to build or upgrade a digital system, platform, or AI solution, `}</p>
                     <p className="leading-[34px] whitespace-pre">{`fill the form below and we’ll respond with a clear proposal within 24 hours. `}</p>
                   </div>
-                  <div className="bg-white cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform h-[48px] overflow-clip relative rounded-[100px] shadow-[0.237px_0.711px_1.05px_-0.2px_rgba(0,0,0,0.05),0.646px_1.937px_2.859px_-0.4px_rgba(0,0,0,0.06),1.418px_4.253px_6.277px_-0.6px_rgba(0,0,0,0.08),3.147px_9.441px_13.933px_-0.8px_rgba(0,0,0,0.11),8px_24px_35.417px_-1px_rgba(0,0,0,0.2)] shrink-0 w-[189px]" data-name="Link - Main" data-node-id="1:377">
+                  <div onClick={() => setIsModalOpen(true)} className="bg-white cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform h-[48px] overflow-clip relative rounded-[100px] shadow-[0.237px_0.711px_1.05px_-0.2px_rgba(0,0,0,0.05),0.646px_1.937px_2.859px_-0.4px_rgba(0,0,0,0.06),1.418px_4.253px_6.277px_-0.6px_rgba(0,0,0,0.08),3.147px_9.441px_13.933px_-0.8px_rgba(0,0,0,0.11),8px_24px_35.417px_-1px_rgba(0,0,0,0.2)] shrink-0 w-[189px]" data-name="Link - Main" data-node-id="1:377">
                     <div className="absolute bg-[#affc41] inset-[0_5px_0_0] opacity-0" data-name="Highlight" data-node-id="1:378" />
                     <div className="-translate-y-1/2 absolute flex flex-col font-['Manrope:SemiBold',sans-serif] font-semibold justify-center leading-[0] left-[calc(50%-48.5px)] text-[16px] text-black top-[23.8px] whitespace-nowrap" data-node-id="1:379">
                       <p className="leading-[19.2px]">Submit Form</p>
@@ -805,7 +812,7 @@ export default function English() {
               </div>
             </RevealOnScroll>
             <div className="absolute content-stretch flex flex-col gap-[7px] items-end left-[1039px] top-[30px] w-[355px]" data-node-id="1:384">
-              <div className="bg-white h-[44px] relative rounded-[73px] shrink-0 w-[170px]" data-name="Content" data-node-id="1:385">
+              <div onClick={() => setIsModalOpen(true)} className="bg-white cursor-pointer hover:scale-[1.03] active:scale-[0.97] transition-transform h-[44px] relative rounded-[73px] shrink-0 w-[170px]" data-name="Content" data-node-id="1:385">
                 <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] left-[calc(50%-47px)] not-italic text-[#2c2a2a] text-[18px] top-[22px] tracking-[-0.36px] whitespace-nowrap" data-node-id="1:386">
                   <p className="leading-[25.2px]">Book a Call</p>
                 </div>
@@ -817,6 +824,8 @@ export default function English() {
           </div>
         </div>
       </div>
+      <ProposalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <IndustryDrawer isOpen={industryDrawerOpen} onClose={() => setIndustryDrawerOpen(false)} industry={selectedIndustry} onConsultClick={() => setIsModalOpen(true)} />
     </div>
   );
 }
